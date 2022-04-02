@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 <body>
     
@@ -93,5 +94,83 @@
 </div>
 
 <!-- Design from: https://static.collectui.com/shots/3671744/musicloud-revolutionary-app-for-music-streaming-large -->
+<script>
+    const $ = document.querySelector.bind(document)
+    const $$ = document.querySelectorAll.bind(document)
+
+    const app = {
+        songs: [
+        {
+            name: 'Hoa Hải Đường',
+            singer: 'Jack',
+            path: './audio/hoa-hai-duong.mp3',
+            image: './images/hoa-hai-duong.jpeg'
+        },
+        {
+            name: 'Khuê Mộc Lan',
+            singer: 'Xuân Tùng',
+            path: './audio/khue-moc-lang.mp3',
+            image: './images/khue-moc-lang.jpeg'
+        },
+        {
+            name: 'Rồi Tới Luôn',
+            singer: 'Jack',
+            path: './audio/roi-toi-luon.mp3',
+            image: './images/roi-toi-luon.jpeg'
+        },
+        {
+            name: 'Sầu Hồng Gai',
+            singer: 'Jack',
+            path: './audio/sau-hong-gai.mp3',
+            image: './images/sau-hong-gai.jpeg'
+        },
+        {
+            name: 'Thiên Đàng',
+            singer: 'Jack',
+            path: './audio/thien-dang.mp3',
+            image: './images/thien-dang.jpeg'
+        },
+        {
+            name: 'Thương Nhau Tới Bến',
+            singer: 'Jack',
+            path: './audio/thuong-nhau-toi-ben.mp3',
+            image: './images/thuong-nhau-toi-ben.jpeg'
+        },
+        {
+            name: 'Y Chang Xuân Sang',
+            singer: 'Jack',
+            path: './audio/y-chang-xuan-sang.mp3',
+            image: './images/y-chang-xuan-sang.jpeg'
+        }
+
+        ],
+      
+        render: function(){
+            const htmls = this.songs.map(song => {
+                return `
+                <div class="song">
+                    <div class="thumb" 
+                        style="background-image: url('${song.image}')">
+                    </div>
+                    <div class="body">
+                        <h3 class="title">${song.name}</h3>
+                        <p class="author">${song.singer}</p>
+                    </div>
+                    <div class="option">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                </div>
+                `          
+            })
+            $('.playlist').innerHTML = htmls.join('\n')
+        },
+      
+        start : function(){
+            this.render()
+        },
+   }
+
+   app.start()
+</script>
 </body>
 </html>
